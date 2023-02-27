@@ -62,6 +62,7 @@ function CreateNewPost() {
       username,
       published: false,
       content: '# hello world!',
+      video_url: '',
       createdAt: serverTimestamp(),
       updatedAt: serverTimestamp(),
       heartCount: 0,

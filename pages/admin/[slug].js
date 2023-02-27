@@ -2,6 +2,7 @@ import styles from '@/styles/Admin.module.css';
 import AuthCheck from '@/components/AuthCheck';
 import { firestore, auth, serverTimestamp } from '@/lib/firebase';
 import ImageUploader from '@/components/ImageUploader';
+import VideoUploader from '@/components/VideoUploader';
 
 import { useState } from 'react';
 import { useRouter } from 'next/router';
@@ -11,6 +12,7 @@ import { useForm } from 'react-hook-form'; // keep track of form inputs, and if 
 import ReactMarkdown from 'react-markdown'; // markdown notation for post
 import Link from 'next/link';
 import toast from 'react-hot-toast';
+import ReactPlayer from 'react-player';
 
 export default function AdminPostEdit(props) {
   return (
@@ -60,14 +62,15 @@ function PostForm({ defaultValues, postRef, preview }) {
 
     const { isValid, isDirty } = formState; // is dirty means the user interacted with it
 
-    const updatePost = async ({ content, published }) => {
+    const updatePost = async ({ content, published, video_url }) => {
     await postRef.update({
         content,
         published,
+        video_url,
         updatedAt: serverTimestamp(),
     });
 
-    reset({ content, published });
+    reset({ content, published, video_url });
 
     toast.success('Post updated successfully!')
     };
@@ -80,13 +83,28 @@ function PostForm({ defaultValues, postRef, preview }) {
         <div className="card">
             <ReactMarkdown>{watch('content')}</ReactMarkdown> 
         </div>
-        )}
+        ) && (
+            <div className="card">
+                <ReactPlayer id="postVid"
+                                        url={watch('video_url')}
+                                        width='100%'
+                                        height='100%'
+                                        playing={true}
+                                        controls={true}
+                                        volume={1}
+                                        progressInterval={5000}
+                                        pip={true}
+                                    />
+        </div>
+        ) }
 
         <div className={preview ? styles.hidden : styles.controls}>
 
             <ImageUploader />
+            <VideoUploader />
 
-        <textarea name="content" ref={register({
+
+            <textarea name="content" ref={register({
                 maxLength: { value: 20000, message: 'content is too long' },
                 minLength: { value: 10, message: 'content is too short' },
                 required: { value: true, message: 'content is required'}
