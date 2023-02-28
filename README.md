@@ -1,5 +1,16 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Tech Stack
+![react_next_firebase](https://user-images.githubusercontent.com/77649265/221729340-0b716b3b-5bac-44c8-99e9-5601a7439505.png)
+
+## Snapshots
+Images taken of the web app
+### Main page with feed
+![feed](https://user-images.githubusercontent.com/77649265/221729471-990eca31-1f55-4d63-b867-1f0267848be5.png)
+### Post with Image
+![post](https://user-images.githubusercontent.com/77649265/221729476-922ff72d-bcc1-4fe6-90aa-e9a785147bac.png)
+
+
 ## Getting Started
 
 First, run the development server:
