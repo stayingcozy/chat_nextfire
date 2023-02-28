@@ -5,7 +5,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Snapshots
 Images taken of the web app
-### Main page of everybodies feed
+### Main page with feed
 ![feed](https://user-images.githubusercontent.com/77649265/221729471-990eca31-1f55-4d63-b867-1f0267848be5.png)
 ### Post with Image
 ![post](https://user-images.githubusercontent.com/77649265/221729476-922ff72d-bcc1-4fe6-90aa-e9a785147bac.png)
