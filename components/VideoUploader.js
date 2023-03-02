@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { auth, storage, STATE_CHANGED } from '@/lib/firebase';
 import Loader from './Loader';
-import ReactPlayer from 'react-player/lazy'
+import VideoPlayer from './VideoPlayer';
 
 // Uploads images to Firebase Storage
 export default function VideoUploader() {
@@ -51,6 +51,7 @@ export default function VideoUploader() {
         </>
     )}
     {downloadURL && <code className="upload-snippet">{`${downloadURL}`}</code>}
+    {downloadURL && <button Video onClick={VideoPlayer(downloadURL)}>Watch</button>}
 
     </div>
   );
